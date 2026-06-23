@@ -1,7 +1,7 @@
 {
   "name": "Life Organiser",
   "short_name": "Organiser",
-  "description": "A personal life organiser for tasks, routines, habits and important dates.",
+  "description": "Offline dashboard for work tasks, routines, habits and important dates.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f5f7fb",

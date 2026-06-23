@@ -1,81 +1,133 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#4f46e5" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
   <title>Life Organiser</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="app-header">
+  <header class="topbar">
     <div>
       <h1>Life Organiser</h1>
-      <p>Tasks, routines, habits and important dates in one place.</p>
+      <p>Simple dashboard for work, habits, routines and important dates.</p>
     </div>
-    <button id="installBtn" class="secondary hidden">Install App</button>
+    <button id="installBtn" class="light hidden">Install</button>
   </header>
 
-  <main class="container">
-    <section class="card">
-      <h2>Add item</h2>
-      <form id="itemForm">
-        <label>
-          Title
-          <input id="title" required placeholder="e.g. Pay rent, Morning walk" />
-        </label>
+  <nav class="tabs">
+    <button data-view="dashboard" class="active">Dashboard</button>
+    <button data-view="work">Work</button>
+    <button data-view="personal">Personal</button>
+    <button data-view="add">Add</button>
+  </nav>
 
-        <label>
-          Category
-          <select id="category">
-            <option>Task</option>
-            <option>Routine</option>
-            <option>Habit</option>
-            <option>Important Date</option>
-            <option>Work</option>
-            <option>Personal</option>
-          </select>
-        </label>
-
-        <label>
-          Date / time
-          <input id="date" type="datetime-local" />
-        </label>
-
-        <label>
-          Notes
-          <textarea id="notes" placeholder="Extra details..."></textarea>
-        </label>
-
-        <button type="submit">Add to organiser</button>
-      </form>
-    </section>
-
-    <section class="card">
-      <div class="toolbar">
-        <h2>Your organiser</h2>
-        <select id="filter">
-          <option value="All">All</option>
-          <option value="Task">Tasks</option>
-          <option value="Routine">Routines</option>
-          <option value="Habit">Habits</option>
-          <option value="Important Date">Important Dates</option>
-          <option value="Work">Work</option>
-          <option value="Personal">Personal</option>
-          <option value="Done">Done</option>
-        </select>
+  <main>
+    <section id="dashboard" class="view active">
+      <div class="stats">
+        <div class="stat"><span id="activeCount">0</span><small>Active</small></div>
+        <div class="stat"><span id="dueCount">0</span><small>Due soon</small></div>
+        <div class="stat"><span id="doneCount">0</span><small>Done</small></div>
+        <div class="stat"><span id="habitCount">0</span><small>Habits</small></div>
       </div>
 
-      <div id="summary" class="summary"></div>
-      <ul id="itemList" class="item-list"></ul>
+      <section class="card">
+        <h2>Today / urgent</h2>
+        <ul id="todayList" class="item-list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Work overview</h2>
+        <div id="workOverview" class="chips"></div>
+      </section>
+
+      <section class="card">
+        <h2>Personal overview</h2>
+        <div id="personalOverview" class="chips"></div>
+      </section>
+    </section>
+
+    <section id="work" class="view">
+      <section class="card">
+        <div class="section-title">
+          <h2>Work</h2>
+          <select id="workFilter">
+            <option>All</option>
+            <option>Outstanding Task</option>
+            <option>Deadline</option>
+            <option>Audit</option>
+            <option>Meeting</option>
+            <option>Admin</option>
+          </select>
+        </div>
+        <ul id="workList" class="item-list"></ul>
+      </section>
+    </section>
+
+    <section id="personal" class="view">
+      <section class="card">
+        <div class="section-title">
+          <h2>Personal</h2>
+          <select id="personalFilter">
+            <option>All</option>
+            <option>Routine</option>
+            <option>Habit</option>
+            <option>Exercise</option>
+            <option>Salah</option>
+            <option>Hydration</option>
+            <option>Cooking</option>
+            <option>Reading</option>
+            <option>Important Date</option>
+          </select>
+        </div>
+        <ul id="personalList" class="item-list"></ul>
+      </section>
+    </section>
+
+    <section id="add" class="view">
+      <section class="card">
+        <h2>Add something</h2>
+        <form id="itemForm">
+          <label>Area
+            <select id="area">
+              <option>Work</option>
+              <option>Personal</option>
+            </select>
+          </label>
+
+          <label>Category
+            <select id="category"></select>
+          </label>
+
+          <label>Title
+            <input id="title" required placeholder="e.g. Submit audit report">
+          </label>
+
+          <label>Date / time
+            <input id="date" type="datetime-local">
+          </label>
+
+          <label>Priority
+            <select id="priority">
+              <option>Normal</option>
+              <option>High</option>
+              <option>Low</option>
+            </select>
+          </label>
+
+          <label>Notes
+            <textarea id="notes" placeholder="Add simple notes..."></textarea>
+          </label>
+
+          <button type="submit">Save</button>
+        </form>
+      </section>
     </section>
   </main>
 
-  <footer>
-    <small>Saved on this device. Works offline after first load.</small>
-  </footer>
-
+  <footer>Works offline after first visit. Your data is saved on this device.</footer>
   <script src="app.js"></script>
 </body>
 </html>
