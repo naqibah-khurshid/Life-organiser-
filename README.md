@@ -1,29 +1,13 @@
-# Life Organiser PWA v3
+const KEY="life-organiser-v4";
+const TRACKER_KEY="life-organiser-trackers-v4";
 
-Offline-first PWA for a general practice pharmacist.
+const workCats=[
+"PMOS","MHRA Alert","CQC Safety Alert","Practice Audit","Diabetes Management",
+"Medication Query","Follow-up Review","Care Home Query","Medication Review","A&G"
+];
 
-## Work categories
-- Medication Query
-- Medication Review
-- Audit
-- Safe Prescribing
-- Cost Effective Prescribing
-- Care Home Query
-- CQC Safety Alert
-- MHRA Alert
-- Hospital Letter
-- Deadline
-- Meeting
-- Follow-up
-- Admin
-
-## Personal trackers
-- Salah tracker: Fajr, Dhuhr, Asr, Maghrib, Isha
-- Hydration
-- Exercise
-- Reading
-- Cooking
-- Routine
-
-## Notes
-Data is saved locally on your device. Avoid adding patient-identifiable information.
+const personalCats=[
+"Salah","Hydration","Cooking","Reciting Quran","Memorising Surahs","Appointments",
+"Life Admin","Bills to Pay","Exercise","Steps","Reading with Haaris",
+"Learning with Haaris","Nursery","Cleaning"
+];
