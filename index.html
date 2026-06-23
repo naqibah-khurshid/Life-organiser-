@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#4f46e5" />
+  <title>Life Organiser</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Life Organiser</h1>
+      <p>Tasks, routines, habits and important dates in one place.</p>
+    </div>
+    <button id="installBtn" class="secondary hidden">Install App</button>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Add item</h2>
+      <form id="itemForm">
+        <label>
+          Title
+          <input id="title" required placeholder="e.g. Pay rent, Morning walk" />
+        </label>
+
+        <label>
+          Category
+          <select id="category">
+            <option>Task</option>
+            <option>Routine</option>
+            <option>Habit</option>
+            <option>Important Date</option>
+            <option>Work</option>
+            <option>Personal</option>
+          </select>
+        </label>
+
+        <label>
+          Date / time
+          <input id="date" type="datetime-local" />
+        </label>
+
+        <label>
+          Notes
+          <textarea id="notes" placeholder="Extra details..."></textarea>
+        </label>
+
+        <button type="submit">Add to organiser</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="toolbar">
+        <h2>Your organiser</h2>
+        <select id="filter">
+          <option value="All">All</option>
+          <option value="Task">Tasks</option>
+          <option value="Routine">Routines</option>
+          <option value="Habit">Habits</option>
+          <option value="Important Date">Important Dates</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Done">Done</option>
+        </select>
+      </div>
+
+      <div id="summary" class="summary"></div>
+      <ul id="itemList" class="item-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <small>Saved on this device. Works offline after first load.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
