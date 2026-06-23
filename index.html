@@ -4,130 +4,142 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#4f46e5">
-  <title>Life Organiser</title>
+  <title>Life Organiser v3</title>
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <h1>Life Organiser</h1>
-      <p>Simple dashboard for work, habits, routines and important dates.</p>
+<header class="topbar">
+  <div>
+    <h1>Life Organiser</h1>
+    <p>Pharmacy work dashboard, personal habits, Salah, reminders and calendar.</p>
+  </div>
+  <button id="installBtn" class="light hidden">Install</button>
+</header>
+
+<nav class="tabs">
+  <button data-view="home" class="active">Home</button>
+  <button data-view="work">Work</button>
+  <button data-view="personal">Personal</button>
+  <button data-view="calendar">Calendar</button>
+  <button data-view="add">Add</button>
+</nav>
+
+<main>
+  <section id="home" class="view active">
+    <div class="stats">
+      <div class="stat"><span id="activeCount">0</span><small>Active</small></div>
+      <div class="stat"><span id="dueSoonCount">0</span><small>Due soon</small></div>
+      <div class="stat"><span id="doneTodayCount">0</span><small>Done today</small></div>
+      <div class="stat"><span id="salahScore">0/5</span><small>Salah</small></div>
     </div>
-    <button id="installBtn" class="light hidden">Install</button>
-  </header>
 
-  <nav class="tabs">
-    <button data-view="dashboard" class="active">Dashboard</button>
-    <button data-view="work">Work</button>
-    <button data-view="personal">Personal</button>
-    <button data-view="add">Add</button>
-  </nav>
-
-  <main>
-    <section id="dashboard" class="view active">
-      <div class="stats">
-        <div class="stat"><span id="activeCount">0</span><small>Active</small></div>
-        <div class="stat"><span id="dueCount">0</span><small>Due soon</small></div>
-        <div class="stat"><span id="doneCount">0</span><small>Done</small></div>
-        <div class="stat"><span id="habitCount">0</span><small>Habits</small></div>
+    <section class="card">
+      <div class="section-title">
+        <h2>Today&apos;s Focus</h2>
+        <button id="enableNotifications">Enable reminders</button>
       </div>
-
-      <section class="card">
-        <h2>Today / urgent</h2>
-        <ul id="todayList" class="item-list"></ul>
-      </section>
-
-      <section class="card">
-        <h2>Work overview</h2>
-        <div id="workOverview" class="chips"></div>
-      </section>
-
-      <section class="card">
-        <h2>Personal overview</h2>
-        <div id="personalOverview" class="chips"></div>
-      </section>
+      <ul id="focusList" class="item-list"></ul>
     </section>
 
-    <section id="work" class="view">
-      <section class="card">
-        <div class="section-title">
-          <h2>Work</h2>
-          <select id="workFilter">
-            <option>All</option>
-            <option>Outstanding Task</option>
-            <option>Deadline</option>
-            <option>Audit</option>
-            <option>Meeting</option>
-            <option>Admin</option>
+    <section class="card">
+      <h2>Salah Today</h2>
+      <div id="salahBox" class="tracker-grid"></div>
+    </section>
+
+    <section class="card">
+      <h2>Daily Habits</h2>
+      <div id="habitBox" class="tracker-grid"></div>
+    </section>
+
+    <section class="card">
+      <h2>Pharmacy Work Overview</h2>
+      <div id="workOverview" class="chips"></div>
+    </section>
+  </section>
+
+  <section id="work" class="view">
+    <section class="card">
+      <div class="section-title">
+        <h2>Work Hub</h2>
+        <select id="workFilter"></select>
+      </div>
+      <ul id="workList" class="item-list"></ul>
+    </section>
+  </section>
+
+  <section id="personal" class="view">
+    <section class="card">
+      <div class="section-title">
+        <h2>Personal Hub</h2>
+        <select id="personalFilter"></select>
+      </div>
+      <ul id="personalList" class="item-list"></ul>
+    </section>
+  </section>
+
+  <section id="calendar" class="view">
+    <section class="card">
+      <h2>Calendar</h2>
+      <p class="muted">Items with dates appear here. Use this for deadlines, audits, reviews, appointments and important dates.</p>
+      <ul id="calendarList" class="item-list"></ul>
+    </section>
+  </section>
+
+  <section id="add" class="view">
+    <section class="card">
+      <h2>Add item</h2>
+      <form id="itemForm">
+        <label>Area
+          <select id="area">
+            <option>Work</option>
+            <option>Personal</option>
           </select>
-        </div>
-        <ul id="workList" class="item-list"></ul>
-      </section>
-    </section>
+        </label>
 
-    <section id="personal" class="view">
-      <section class="card">
-        <div class="section-title">
-          <h2>Personal</h2>
-          <select id="personalFilter">
-            <option>All</option>
-            <option>Routine</option>
-            <option>Habit</option>
-            <option>Exercise</option>
-            <option>Salah</option>
-            <option>Hydration</option>
-            <option>Cooking</option>
-            <option>Reading</option>
-            <option>Important Date</option>
+        <label>Category
+          <select id="category"></select>
+        </label>
+
+        <label>Title
+          <input id="title" required placeholder="e.g. Review hospital letter">
+        </label>
+
+        <label>Date / time
+          <input id="date" type="datetime-local">
+        </label>
+
+        <label>Priority
+          <select id="priority">
+            <option>Normal</option>
+            <option>High</option>
+            <option>Low</option>
           </select>
-        </div>
-        <ul id="personalList" class="item-list"></ul>
-      </section>
+        </label>
+
+        <label>Status
+          <select id="status">
+            <option>Not started</option>
+            <option>In progress</option>
+            <option>Waiting</option>
+            <option>Complete</option>
+          </select>
+        </label>
+
+        <label>Notes
+          <textarea id="notes" placeholder="Add simple notes. Avoid storing patient-identifiable information."></textarea>
+        </label>
+
+        <button type="submit">Save</button>
+      </form>
     </section>
+  </section>
+</main>
 
-    <section id="add" class="view">
-      <section class="card">
-        <h2>Add something</h2>
-        <form id="itemForm">
-          <label>Area
-            <select id="area">
-              <option>Work</option>
-              <option>Personal</option>
-            </select>
-          </label>
+<footer>
+  Offline after first visit. Data is saved on this device. Avoid entering patient-identifiable data.
+</footer>
 
-          <label>Category
-            <select id="category"></select>
-          </label>
-
-          <label>Title
-            <input id="title" required placeholder="e.g. Submit audit report">
-          </label>
-
-          <label>Date / time
-            <input id="date" type="datetime-local">
-          </label>
-
-          <label>Priority
-            <select id="priority">
-              <option>Normal</option>
-              <option>High</option>
-              <option>Low</option>
-            </select>
-          </label>
-
-          <label>Notes
-            <textarea id="notes" placeholder="Add simple notes..."></textarea>
-          </label>
-
-          <button type="submit">Save</button>
-        </form>
-      </section>
-    </section>
-  </main>
-
-  <footer>Works offline after first visit. Your data is saved on this device.</footer>
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

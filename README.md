@@ -1,12 +1,29 @@
-# Life Organiser PWA v2
+# Life Organiser PWA v3
 
-Updated offline-first PWA.
+Offline-first PWA for a general practice pharmacist.
 
-Features:
-- Dashboard overview
-- Work: outstanding tasks, deadlines, audits, meetings, admin
-- Personal: routines, habits, exercise, salah, hydration, cooking, reading, important dates
-- Priority levels
-- Due-soon dashboard
-- Offline support after first visit
-- Data saved locally on the device
+## Work categories
+- Medication Query
+- Medication Review
+- Audit
+- Safe Prescribing
+- Cost Effective Prescribing
+- Care Home Query
+- CQC Safety Alert
+- MHRA Alert
+- Hospital Letter
+- Deadline
+- Meeting
+- Follow-up
+- Admin
+
+## Personal trackers
+- Salah tracker: Fajr, Dhuhr, Asr, Maghrib, Isha
+- Hydration
+- Exercise
+- Reading
+- Cooking
+- Routine
+
+## Notes
+Data is saved locally on your device. Avoid adding patient-identifiable information.

@@ -1,7 +1,7 @@
 {
-  "name": "Life Organiser",
+  "name": "Life Organiser v3",
   "short_name": "Organiser",
-  "description": "Offline dashboard for work tasks, routines, habits and important dates.",
+  "description": "Offline pharmacy work and personal life organiser.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f5f7fb",
