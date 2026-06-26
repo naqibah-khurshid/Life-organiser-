@@ -1,13 +1,5 @@
-const KEY="life-organiser-v4";
-const TRACKER_KEY="life-organiser-trackers-v4";
+# Life Organiser PWA v5
 
-const workCats=[
-"PMOS","MHRA Alert","CQC Safety Alert","Practice Audit","Diabetes Management",
-"Medication Query","Follow-up Review","Care Home Query","Medication Review","A&G"
-];
+Dashboard, proper monthly calendar, search, filters, offline use, backup export/import and reminder notifications.
 
-const personalCats=[
-"Salah","Hydration","Cooking","Reciting Quran","Memorising Surahs","Appointments",
-"Life Admin","Bills to Pay","Exercise","Steps","Reading with Haaris",
-"Learning with Haaris","Nursery","Cleaning"
-];
+Avoid storing patient-identifiable information.

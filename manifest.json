@@ -1,7 +1,7 @@
 {
-  "name": "Life Organiser v3",
+  "name": "Life Organiser v5",
   "short_name": "Organiser",
-  "description": "Offline pharmacy work and personal life organiser.",
+  "description": "Offline organiser with dashboard, calendar, search, filters, backups and reminders.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f5f7fb",
